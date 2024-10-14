@@ -39,7 +39,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/angularjenkins/",
+              "baseHref": "/angularjenkins/browser/",
               "budgets": [
                 {
                   "type": "initial",
