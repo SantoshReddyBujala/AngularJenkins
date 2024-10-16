@@ -3,7 +3,7 @@ pipeline {
     stages {
       stage("node") {
             steps{
-                 "node --version"
+                 bat "node --version"
             }
         }
         stage("build") {
