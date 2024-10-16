@@ -6,9 +6,9 @@ pipeline {
                  bat "node --version"
             }
         }
-      stage("java") {
+      stage("docker") {
             steps{
-                 bat "java --version"
+                 bat "docker --version"
             }
         }
         stage("build") {
