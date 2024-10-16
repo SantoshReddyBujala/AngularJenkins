@@ -6,6 +6,11 @@ pipeline {
                  bat "node --version"
             }
         }
+      stage("java") {
+            steps{
+                 bat "java --version"
+            }
+        }
         stage("build") {
             steps{
                  bat  "npm install"
