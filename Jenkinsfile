@@ -1,10 +1,26 @@
-pipeline { 
+pipeline {
     agent any
+
     stages {
-        stage("build") {
-            steps{
-                 bat  "npm install"
-                 bat "npm run ng build --prod"
+        stage('Build') {
+            steps {
+                script {
+                    docker.image('node:16-alpine').inside { 
+                        sh 'npm install -g @angular/cli'
+                        sh 'npm install'
+                        sh 'ng build --prod' 
+                    }
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    docker.image('node:16-alpine').inside { 
+                        sh 'ng test --watch=false --browsers=ChromeHeadless' 
+                    }
+                }
             }
         }
     }
